@@ -4,6 +4,14 @@ using namespace std;
 
 typedef long double ld;
 typedef long long ll;
+
+struct Rectangle{
+    ll leftlowerx;
+    ll leftlowery;
+    ll weight;
+    ll hight;
+};
+
 void print(queue<ll>& a){
     while(!a.empty()){
         cout<<a.back()<<" ";
