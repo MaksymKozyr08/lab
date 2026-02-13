@@ -19,6 +19,9 @@ int main(){
         a.push(rand()%10);
     }
     print(a);
-    
+    if(a.empty())cout<<true;
+    else{
+        cout<<false;
+    }
     return 0;
 }
