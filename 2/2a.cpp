@@ -41,10 +41,13 @@ void createstatilmasive(staticmasive& a){
 
 //--------------------------------------------------------------
 //add
-void add_element(staticmasive& a, rectangle val){
-    if(a.count==100)return;
+void add_element0(staticmasive& a, rectangle val){
+    if(a.count==100){
+        cout<<"Error"<<"\n";
+        return;
+    }
     a.date[a.tail]=val;
-    a.tail=(a.tail+1)%100;
+    a.tail=(a.tail+1)%100;;
     a.count++;
 }
 //--------------------------------------------------------------
@@ -53,8 +56,11 @@ void add_element(staticmasive& a, rectangle val){
 
 //--------------------------------------------------------------
 //delete
-void delete_element(staticmasive& a){
-    if(a.count==0)return;
+void delete_element0(staticmasive& a){
+    if(a.count==0){
+        cout<<"Error";
+        return;
+    }
     a.head=(a.head+1)%100;
     a.count--;
 }
