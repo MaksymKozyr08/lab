@@ -11,6 +11,15 @@ struct Rectangle{
     ll weight;
     ll hight;
 };
+ll startprogram(){
+    cout<<"Select a number from the list for further action";
+    cout<<"1:delete element ";
+    cout<<"2:add element ";
+    cout<<"3:display queue ";
+    ll n;
+    cin>>n;
+    return n;
+}
 
 void print(queue<ll>& a){
     while(!a.empty()){
@@ -31,5 +40,6 @@ int main(){
     else{
         cout<<false;
     }
+    vector<ll> a1(n);
     return 0;
 }
