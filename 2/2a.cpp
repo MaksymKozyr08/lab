@@ -66,7 +66,7 @@ void add_element1(Dynamiccmasive& a,rectangle val){
 
 
 
-//--------------------------------------------------------------
+//--------------------------------------------------------------    
 //delete
 void delete_element0(staticmasive& a){
     if(a.count==0){
