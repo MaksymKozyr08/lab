@@ -21,6 +21,10 @@ struct staticmasive{
     ll tail;
     ll count;
 };
+
+struct Dynamiccmasive{
+    vector<rectangle> date;
+};
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------
@@ -36,6 +40,10 @@ void createstatilmasive(staticmasive& a){
         a.date[i].hight=0;
     }
 }
+
+void createDynamicmasive(Dynamiccmasive& a){
+    a.date.clear();
+}
 //--------------------------------------------------------------
 
 
@@ -50,6 +58,10 @@ void add_element0(staticmasive& a, rectangle val){
     a.tail=(a.tail+1)%100;;
     a.count++;
 }
+
+void add_element1(Dynamiccmasive& a,rectangle val){
+    a.date.push_back(val);
+}
 //--------------------------------------------------------------
 
 
@@ -63,6 +75,13 @@ void delete_element0(staticmasive& a){
     }
     a.head=(a.head+1)%100;
     a.count--;
+}
+void deete_element1(Dynamiccmasive& a){
+    if(a.date.empty()){
+        cout<<"Error";
+        return;
+    }
+    a.date.erase(a.date.begin());
 }
 //--------------------------------------------------------------
 
