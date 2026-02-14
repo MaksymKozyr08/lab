@@ -25,6 +25,16 @@ struct staticmasive{
 struct Dynamiccmasive{
     vector<rectangle> date;
 };
+
+struct Node{
+    rectangle date;
+    Node* next;
+};
+
+struct Linkedlist{
+    Node* head;
+    Node* tail;
+};
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------
@@ -44,6 +54,11 @@ void createstatilmasive(staticmasive& a){
 void createDynamicmasive(Dynamiccmasive& a){
     a.date.clear();
 }
+
+void createlinkedlist(Linkedlist& a){
+    a.head=nullptr;
+    a.tail=nullptr;
+}
 //--------------------------------------------------------------
 
 
@@ -61,6 +76,19 @@ void add_element0(staticmasive& a, rectangle val){
 
 void add_element1(Dynamiccmasive& a,rectangle val){
     a.date.push_back(val);
+}
+
+void add_element2(Linkedlist& a, rectangle val){
+    Node* temp=new Node;
+    temp->date=val;
+    temp->next=nullptr;
+    if(a.head==nullptr){
+        a.head=temp;
+        a.tail=temp;
+    }else{
+        a.tail->next=temp;
+        a.tail=temp;
+    }
 }
 //--------------------------------------------------------------
 
@@ -82,6 +110,19 @@ void deete_element1(Dynamiccmasive& a){
         return;
     }
     a.date.erase(a.date.begin());
+}
+
+void delete_element2(Linkedlist& a){
+    if(a.head==nullptr){
+        cout<<"Error";
+        return;
+    }
+    Node* temp=a.head;
+    a.head=a.head->next;
+    if(a.head==nullptr){
+        a.tail=nullptr;
+    }
+    delete temp;
 }
 //--------------------------------------------------------------
 
@@ -117,6 +158,9 @@ void print(queue<ll> a){
 int main(){
     staticmasive myStaticQ;
     createstatilmasive(myStaticQ);
+    
+    Linkedlist myListQ;
+    createlinkedlist(myListQ);
 
     ll n;
     cin>>n;
