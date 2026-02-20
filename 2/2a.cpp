@@ -17,7 +17,7 @@ struct rectangle{
 };
 
 struct staticmasive{
-    rectangle date[100000]; 
+    rectangle date[20000]; 
     ll head;
     ll tail;
     ll count;
@@ -59,9 +59,9 @@ void createlinkedlist(Linkedlist& a){
 //--------------------------------------------------------------
 //add
 void add_element0(staticmasive& a, rectangle val){
-    if(a.count==100000)return;
+    if(a.count==20000)return;
     a.date[a.tail]=val;
-    a.tail=(a.tail+1)%100000;
+    a.tail=(a.tail+1)%20000;
     a.count++;
 }
 
@@ -87,7 +87,7 @@ void add_element2(Linkedlist& a, rectangle val){
 //delete
 void delete_element0(staticmasive& a){
     if(a.count==0)return;
-    a.head=(a.head+1)%100000;
+    a.head=(a.head+1)%20000;
     a.count--;
 }
 void delete_element1(Dynamiccmasive& a){
@@ -107,6 +107,36 @@ void delete_element2(Linkedlist& a){
 //--------------------------------------------------------------
 
 //--------------------------------------------------------------
+//print
+void print_element0(staticmasive& a){
+    if(a.count==0){ cout<<"Empty\n"; return; }
+    ll curr=a.head;
+    for(ll i=0; i<a.count; i++){
+        cout<<"["<<a.date[curr].leftlowerx<<","<<a.date[curr].leftlowery<<","<<a.date[curr].weight<<","<<a.date[curr].hight<<"] ";
+        curr=(curr+1)%20000;
+    }
+    cout<<"\n";
+}
+
+void print_element1(Dynamiccmasive& a){
+    if(a.date.empty()){ cout<<"Empty\n"; return; }
+    for(ll i=0; i<a.date.size(); i++){
+        cout<<"["<<a.date[i].leftlowerx<<","<<a.date[i].leftlowery<<","<<a.date[i].weight<<","<<a.date[i].hight<<"] ";
+    }
+    cout<<"\n";
+}
+
+void print_element2(Linkedlist& a){
+    if(a.head==nullptr){ cout<<"Empty\n"; return; }
+    Node* temp=a.head;
+    while(temp!=nullptr){
+        cout<<"["<<temp->date.leftlowerx<<","<<temp->date.leftlowery<<","<<temp->date.weight<<","<<temp->date.hight<<"] ";
+        temp=temp->next;
+    }
+    cout<<"\n";
+}
+//--------------------------------------------------------------
+
 // DEMO MODE
 void demo(){
     cout<<"--- DEMO MODE ---\n";
@@ -198,7 +228,7 @@ int main(){
             staticmasive q; 
             createstatilmasive(q);
             while(true){
-                cout<<"Static: 1.Add 2.Del 0.Exit: ";
+                cout<<"Static: 1.Add 2.Del 3.Print 0.Exit: ";
                 ll op; cin>>op;
                 if(op==0)break;
                 if(op==1){
@@ -210,13 +240,16 @@ int main(){
                     delete_element0(q);
                     cout<<"Deleted\n";
                 }
+                if(op==3){
+                    print_element0(q);
+                }
             }
         }
         else if(type==2){
             Dynamiccmasive q; 
             createDynamicmasive(q);
             while(true){
-                cout<<"Dynamic: 1.Add 2.Del 0.Exit: ";
+                cout<<"Dynamic: 1.Add 2.Del 3.Print 0.Exit: ";
                 ll op; cin>>op;
                 if(op==0)break;
                 if(op==1){
@@ -228,23 +261,29 @@ int main(){
                     delete_element1(q);
                     cout<<"Deleted\n";
                 }
+                if(op==3){
+                    print_element1(q);
+                }
             }
         }
         else if(type==3){
             Linkedlist q; 
             createlinkedlist(q);
             while(true){
-                cout<<"List: 1.Add 2.Del 0.Exit: ";
+                cout<<"List: 1.Add 2.Del 3.Print 0.Exit: ";
                 ll op; cin>>op;
                 if(op==0)break;
                 if(op==1){
                     ll x,y,w,h;
                     cout<<"x y w h: "; cin>>x>>y>>w>>h;
-                    add_element2(q,{x,y,w,h});
+                    add_element2(q, {x, y, w, h});
                 }
                 if(op==2){
                     delete_element2(q);
                     cout<<"Deleted\n";
+                }
+                if(op==3){
+                    print_element2(q);
                 }
             }
         }
