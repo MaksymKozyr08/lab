@@ -17,7 +17,6 @@ struct Linkedlist{
     Node* head;
     Node* tail;
 };
-
 void createlinkedlist(Linkedlist& a){
     a.head=nullptr;
     a.tail=nullptr;
