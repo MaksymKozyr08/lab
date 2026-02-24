@@ -1,146 +1,74 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <iomanip>
-#include <climits>
-
 using namespace std;
 
-// Структура для опису задачі
-struct Task {
-    int id;         // Ідентифікатор задачі
-    int arrivalTime; // Час надходження (AT)
-    int burstTime;   // Час виконання (BT)
-    
-    // Поля для результатів обчислень
-    int completionTime = 0; // Час завершення
-    int waitingTime = 0;    // Час очікування
-    int turnAroundTime = 0; // Час перебування в системі (Waiting + Burst)
-    bool completed = false; // Прапорець для SJF
+typedef long long ll;
+
+struct job{
+    ll id;
+    ll burst;
 };
 
-// Допоміжна функція для виведення таблиці результатів
-void printSchedule(const vector<Task>& tasks, const string& algorithmName) {
-    cout << "\n--- " << algorithmName << " Результати ---" << endl;
-    cout << "ID\tAT\tBT\tCT\tTAT\tWT\n";
-    cout << "--------------------------------------------\n";
+struct Node{
+    job date;
+    Node* next;
+};
 
-    double totalWT = 0, totalTAT = 0;
+struct Linkedlist{
+    Node* head;
+    Node* tail;
+};
 
-    for (const auto& t : tasks) {
-        cout << "P" << t.id << "\t" 
-             << t.arrivalTime << "\t" 
-             << t.burstTime << "\t" 
-             << t.completionTime << "\t" 
-             << t.turnAroundTime << "\t" 
-             << t.waitingTime << endl;
-
-        totalWT += t.waitingTime;
-        totalTAT += t.turnAroundTime;
-    }
-
-    cout << "--------------------------------------------\n";
-    cout << fixed << setprecision(2);
-    cout << "Середній час очікування: " << (totalWT / tasks.size()) << endl;
-    cout << "Середній час перебування: " << (totalTAT / tasks.size()) << endl;
+void createlinkedlist(Linkedlist& a){
+    a.head=nullptr;
+    a.tail=nullptr;
 }
 
-// 1. Алгоритм FCFS (First Come First Served)
-void runFCFS(vector<Task> tasks) { // Передаємо копію вектора, щоб не псувати оригінал
-    // Сортуємо задачі за часом надходження
-    sort(tasks.begin(), tasks.end(), [](const Task& a, const Task& b) {
-        return a.arrivalTime < b.arrivalTime;
-    });
-
-    int currentTime = 0;
-
-    for (auto& t : tasks) {
-        // Якщо процесор вільний, а задача ще не прийшла - чекаємо
-        if (currentTime < t.arrivalTime) {
-            currentTime = t.arrivalTime;
-        }
-
-        // Виконання задачі
-        currentTime += t.burstTime;
-
-        // Запис результатів
-        t.completionTime = currentTime;
-        t.turnAroundTime = t.completionTime - t.arrivalTime;
-        t.waitingTime = t.turnAroundTime - t.burstTime;
+void add_element2(Linkedlist& a, job val){
+    Node* temp=new Node;
+    temp->date=val;
+    temp->next=nullptr;
+    if(a.head==nullptr){
+        a.head=temp;
+        a.tail=temp;
+    }else{
+        a.tail->next=temp;
+        a.tail=temp;
     }
-
-    printSchedule(tasks, "FCFS");
 }
 
-// 2. Алгоритм SJF (Shortest Job First) - Невитісняючий (Non-preemptive)
-void runSJF(vector<Task> tasks) {
-    int n = tasks.size();
-    int completedCount = 0;
-    int currentTime = 0;
-    
-    // Вектор для збереження порядку виконання (опціонально, тут ми просто оновлюємо tasks)
-    // Важливо: для SJF ми не можемо просто відсортувати все на початку, 
-    // бо ми повинні вибирати тільки з тих задач, які ВЖЕ надійшли.
-
-    while (completedCount < n) {
-        int idx = -1;
-        int minBurst = INT_MAX;
-
-        // Шукаємо задачу, яка:
-        // 1. Вже надійшла (arrivalTime <= currentTime)
-        // 2. Ще не виконана (!completed)
-        // 3. Має найменший час виконання (burstTime)
-        for (int i = 0; i < n; i++) {
-            if (tasks[i].arrivalTime <= currentTime && !tasks[i].completed) {
-                if (tasks[i].burstTime < minBurst) {
-                    minBurst = tasks[i].burstTime;
-                    idx = i;
-                }
-                // Якщо burstTime однакові, пріоритет у тієї, що прийшла раніше (FCFS для рівних)
-                if (tasks[i].burstTime == minBurst) {
-                    if (tasks[i].arrivalTime < tasks[idx].arrivalTime) {
-                        idx = i;
-                    }
-                }
-            }
-        }
-
-        if (idx != -1) {
-            // Знайшли задачу
-            Task& t = tasks[idx];
-            currentTime += t.burstTime;
-            t.completionTime = currentTime;
-            t.turnAroundTime = t.completionTime - t.arrivalTime;
-            t.waitingTime = t.turnAroundTime - t.burstTime;
-            t.completed = true;
-            completedCount++;
-        } else {
-            // Якщо жодна задача ще не надійшла, рухаємо час вперед
-            currentTime++;
-        }
+void delete_element2(Linkedlist& a){
+    if(a.head==nullptr)return;
+    Node* temp=a.head;
+    a.head=a.head->next;
+    if(a.head==nullptr){
+        a.tail=nullptr;
     }
-
-    printSchedule(tasks, "SJF");
+    delete temp;
 }
 
-int main() {
-    // Вхідні дані (можна змінити на введення з клавіатури)
-    // Формат: {ID, ArrivalTime, BurstTime}
-    vector<Task> taskList = {
-        {1, 0, 8},
-        {2, 1, 4},
-        {3, 2, 9},
-        {4, 3, 5}
-    };
+void round_robin(Linkedlist& a, ll q){
+    ll t=0;
+    while(a.head!=nullptr){
+        job cur=a.head->date;
+        delete_element2(a);
+        if(cur.burst>q){
+            t+=q;
+            cur.burst-=q;
+            add_element2(a, cur);
+            cout<<t<<" "<<cur.id<<" "<<cur.burst<<"\n";
+        }else{
+            t+=cur.burst;
+            cout<<t<<" "<<cur.id<<" 0\n";
+        }
+    }
+}
 
-    cout << "Вхідні задачі:\nID\tAT\tBT\n";
-    for(const auto& t : taskList) cout << t.id << "\t" << t.arrivalTime << "\t" << t.burstTime << endl;
-
-    // Запуск FCFS
-    runFCFS(taskList);
-
-    // Запуск SJF
-    runSJF(taskList);
-
+int main(){
+    Linkedlist a;
+    createlinkedlist(a);
+    add_element2(a, {1, 10});
+    add_element2(a, {2, 5});
+    add_element2(a, {3, 8});
+    round_robin(a, 3);
     return 0;
 }
