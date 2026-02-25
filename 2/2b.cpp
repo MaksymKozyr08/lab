@@ -12,7 +12,6 @@ struct Node{
     job date;
     Node* next;
 };
-
 struct Linkedlist{
     Node* head;
     Node* tail;
@@ -21,7 +20,6 @@ void createlinkedlist(Linkedlist& a){
     a.head=nullptr;
     a.tail=nullptr;
 }
-
 void add_element2(Linkedlist& a, job val){
     Node* temp=new Node;
     temp->date=val;
