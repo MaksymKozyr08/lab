@@ -16,7 +16,7 @@ struct Linkedlist{
     Node* head;
     Node* tail;
 };
-void createlinkedlist(Linkedlist& a){
+void init_linked_list(Linkedlist& a){
     a.head=nullptr;
     a.tail=nullptr;
 }
@@ -33,7 +33,7 @@ void add_element2(Linkedlist& a, job val){
     }
 }
 
-void delete_element2(Linkedlist& a){
+void dequeue_linked_list(Linkedlist& a){
     if(a.head==nullptr)return;
     Node* temp=a.head;
     a.head=a.head->next;
@@ -47,7 +47,7 @@ void round_robin(Linkedlist& a, ll q){
     ll t=0;
     while(a.head!=nullptr){
         job cur=a.head->date;
-        delete_element2(a);
+        dequeue_linked_list(a);
         if(cur.burst>q){
             t+=q;
             cur.burst-=q;
@@ -62,7 +62,7 @@ void round_robin(Linkedlist& a, ll q){
 
 int main(){
     Linkedlist a;
-    createlinkedlist(a);
+    init_linked_list(a);
     add_element2(a, {1, 10});
     add_element2(a, {2, 5});
     add_element2(a, {3, 8});

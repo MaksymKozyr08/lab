@@ -14,7 +14,7 @@ struct Dynamiccmasive{
     vector<job> date;
 };
 
-void createDynamicmasive(Dynamiccmasive& a){
+void init_dynamic_queue(Dynamiccmasive& a){
     a.date.clear();
 }
 
@@ -98,7 +98,7 @@ void SJF(Dynamiccmasive a){
 
 int main(){
     Dynamiccmasive q; 
-    createDynamicmasive(q);
+    init_dynamic_queue(q);
     ll id_counter = 1;
     while(true){
         cout<<"Menu: 1.Add Job  2.Run FCFS  3.Run SJF  0.Exit: ";
