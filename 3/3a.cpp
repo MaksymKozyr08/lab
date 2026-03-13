@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include <chrono>
 #include <algorithm>
-#include <iomanip>
 using namespace std;
 using namespace std::chrono;
 
@@ -19,7 +17,7 @@ struct Point3D{
 };
 
 ostream& operator<<(ostream& os, const Point3D& p){
-    os<<"("<<fixed<<setprecision(1)<<p.x<<","<<p.y<<","<<p.z<<")";
+    os<<"("<<p.x<<","<<p.y<<","<<p.z<<")";
     return os;
 }
 
@@ -93,7 +91,7 @@ void merge(vector<Point3D>& a,vector<Point3D>& t,ll left,ll mid,ll right,bool de
     }
 }
 
-void mergesort(vector<Point3D>& a,vector<Point3D>& t,ll left,ll right,bool demo){
+void mergesort(vector<Point3D>& a,vector<Point3D>& t,ll left,ll right,bool demo=false){
     if(left<right){
         ll mid=left+(right-left)/2;
         mergesort(a,t,left,mid,demo);
@@ -132,10 +130,13 @@ void demo(){
     ll n=10;
     vector<Point3D> o=gen(n,0);
     print(o);
+    cout<<"\n";
     vector<Point3D> c=o;
     insertionsort(c,0,n-1,true);
+    cout<<"\n";
     c=o;
     quicksort(c,0,n-1,true);
+    cout<<"\n";
     c=o;
     vector<Point3D> t(n);
     mergesort(c,t,0,n-1,true);
@@ -143,47 +144,54 @@ void demo(){
 
 void bench(){
     ll sizes[]={10000,50000};
+    cout<<"size\ttype\tIS\tQS\tMS\tSTD\n";
     for(ll s:sizes){
         for(ll t=0;t<3;++t){
             vector<Point3D> o=gen(s,t);
             vector<Point3D> c=o;
-            cout<<s<<" t:"<<t<<"\n";
+            
+            cout<<s<<"\t"<<t<<"\t";
+            
             if(s<=10000){
                 auto st=high_resolution_clock::now();
                 insertionsort(c,0,s-1);
-                cout<<"IS: "<<duration_cast<milliseconds>(high_resolution_clock::now()-st).count()<<"\n";
+                cout<<duration_cast<milliseconds>(high_resolution_clock::now()-st).count()<<"\t";
+            }else{
+                cout<<"-\t";
             }
+            
             c=o;
             auto stq=high_resolution_clock::now();
             quicksort(c,0,s-1);
-            cout<<"QS: "<<duration_cast<milliseconds>(high_resolution_clock::now()-stq).count()<<"\n";
+            cout<<duration_cast<milliseconds>(high_resolution_clock::now()-stq).count()<<"\t";
             
             c=o;
             vector<Point3D> tm(s);
             auto stm=high_resolution_clock::now();
             mergesort(c,tm,0,s-1,false);
-            cout<<"MS: "<<duration_cast<milliseconds>(high_resolution_clock::now()-stm).count()<<"\n";
+            cout<<duration_cast<milliseconds>(high_resolution_clock::now()-stm).count()<<"\t";
             
             c=o;
             auto sts=high_resolution_clock::now();
             sort(c.begin(),c.end());
-            cout<<"STD: "<<duration_cast<milliseconds>(high_resolution_clock::now()-sts).count()<<"\n";
+            cout<<duration_cast<milliseconds>(high_resolution_clock::now()-sts).count()<<"\n";
         }
     }
+    cout<<"\nhybrid th:\n";
     ll ths[]={5,10,15,20,30,50};
     vector<Point3D> ho=gen(100000,0);
-    cout<<"hybrid th:\n";
     for(ll th:ths){
         vector<Point3D> c=ho;
         auto st=high_resolution_clock::now();
         hybrid(c,0,99999,th);
-        cout<<th<<": "<<duration_cast<milliseconds>(high_resolution_clock::now()-st).count()<<"\n";
+        cout<<th<<":\t"<<duration_cast<milliseconds>(high_resolution_clock::now()-st).count()<<"\n";
     }
 }
 
 int main(){
     srand(time(0));
     ll ch;
+    cout<<"print 1 or 2:"<<"\n";
     cin>>ch;
     if(ch==1)demo();
     else if(ch==2)bench();
