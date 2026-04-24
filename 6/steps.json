@@ -1,0 +1,114 @@
+{
+  "steps": [
+    {
+      "step_idx": 0,
+      "inserted_point": "Point(9, 6, -3)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(9, 6, -3)"]},
+        "LinkedList": {"type": "array", "nodes": ["(9, 6, -3)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(9, 6, -3)"]}
+      }
+    },
+    {
+      "step_idx": 1,
+      "inserted_point": "Point(6, 5, -7)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(6, 5, -7)", "(9, 6, -3)"]},
+        "LinkedList": {"type": "array", "nodes": ["(6, 5, -7)", "(9, 6, -3)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": null}, {"id": 1, "val": "(6, 5, -7)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": null}, {"id": 1, "val": "(6, 5, -7)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(6, 5, -7)", "(9, 6, -3)"]}
+      }
+    },
+    {
+      "step_idx": 2,
+      "inserted_point": "Point(-7, 2, 2)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(9, 6, -3)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(9, 6, -3)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": null}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": null}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 0}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": null}, {"id": 0, "val": "(9, 6, -3)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(9, 6, -3)"]}
+      }
+    },
+    {
+      "step_idx": 3,
+      "inserted_point": "Point(-8, -7, -1)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": null}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 0}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": null}, {"id": 0, "val": "(9, 6, -3)", "left": 3, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)"]}
+      }
+    },
+    {
+      "step_idx": 4,
+      "inserted_point": "Point(8, -1, -9)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)", "(8, -1, -9)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)", "(8, -1, -9)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": 4}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 0}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": null}, {"id": 0, "val": "(9, 6, -3)", "left": 3, "right": 4}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)", "(8, -1, -9)"]}
+      }
+    },
+    {
+      "step_idx": 5,
+      "inserted_point": "Point(-7, 2, -3)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)", "(8, -1, -9)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)", "(8, -1, -9)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": 4}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 0}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 0, "val": "(9, 6, -3)", "left": 3, "right": 4}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(9, 6, -3)", "(8, -1, -9)"]}
+      }
+    },
+    {
+      "step_idx": 6,
+      "inserted_point": "Point(-10, 3, 4)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": 4}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 0}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 0, "val": "(9, 6, -3)", "left": 3, "right": 4}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)"]}
+      }
+    },
+    {
+      "step_idx": 7,
+      "inserted_point": "Point(5, 10, -9)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(5, 10, -9)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(5, 10, -9)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": 4}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": 7}, {"id": 7, "val": "(5, 10, -9)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 0}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 0, "val": "(9, 6, -3)", "left": 3, "right": 4}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": 7}, {"id": 7, "val": "(5, 10, -9)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(5, 10, -9)"]}
+      }
+    },
+    {
+      "step_idx": 8,
+      "inserted_point": "Point(-6, 9, 7)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(-6, 9, 7)", "(5, 10, -9)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(-6, 9, 7)", "(5, 10, -9)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": 4}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": 7}, {"id": 7, "val": "(5, 10, -9)", "left": 8, "right": null}, {"id": 8, "val": "(-6, 9, 7)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 0}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 0, "val": "(9, 6, -3)", "left": 3, "right": 8}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 8, "val": "(-6, 9, 7)", "left": 4, "right": 7}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}, {"id": 7, "val": "(5, 10, -9)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(-6, 9, 7)", "(5, 10, -9)"]}
+      }
+    },
+    {
+      "step_idx": 9,
+      "inserted_point": "Point(10, -7, -10)",
+      "structures": {
+        "ArrayList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(-6, 9, 7)", "(5, 10, -9)", "(10, -7, -10)"]},
+        "LinkedList": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(-6, 9, 7)", "(5, 10, -9)", "(10, -7, -10)"]},
+        "BST": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": 4}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": 7}, {"id": 7, "val": "(5, 10, -9)", "left": 8, "right": 9}, {"id": 8, "val": "(-6, 9, 7)", "left": null, "right": null}, {"id": 9, "val": "(10, -7, -10)", "left": null, "right": null}]},
+        "AVLTree": {"type": "tree", "nodes": [{"id": 0, "val": "(9, 6, -3)", "left": 1, "right": 8}, {"id": 1, "val": "(6, 5, -7)", "left": 2, "right": 3}, {"id": 2, "val": "(-7, 2, 2)", "left": null, "right": 5}, {"id": 5, "val": "(-7, 2, -3)", "left": null, "right": null}, {"id": 3, "val": "(-8, -7, -1)", "left": null, "right": 6}, {"id": 6, "val": "(-10, 3, 4)", "left": null, "right": null}, {"id": 8, "val": "(-6, 9, 7)", "left": 4, "right": 7}, {"id": 4, "val": "(8, -1, -9)", "left": null, "right": null}, {"id": 7, "val": "(5, 10, -9)", "left": null, "right": 9}, {"id": 9, "val": "(10, -7, -10)", "left": null, "right": null}]},
+        "StdSetWrapper": {"type": "array", "nodes": ["(-7, 2, 2)", "(-7, 2, -3)", "(6, 5, -7)", "(-8, -7, -1)", "(-10, 3, 4)", "(9, 6, -3)", "(8, -1, -9)", "(-6, 9, 7)", "(5, 10, -9)", "(10, -7, -10)"]}
+      }
+    }
+  ]
+}
